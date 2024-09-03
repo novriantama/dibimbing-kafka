@@ -8,7 +8,9 @@ RUN pip install \
     python-dotenv==0.20.0 \
     kafka-python==2.0.2 \
     faker==18.9.0 \
-    protobuf
+    confluent-kafka \
+    fastavro \
+    protobuf3-to-dict
 RUN curl https://repo1.maven.org/maven2/org/apache/kafka/kafka-clients/2.1.1/kafka-clients-2.1.1.jar -o /opt/kafka-clients-2.1.1.jar
 RUN curl https://repo1.maven.org/maven2/org/apache/spark/spark-sql-kafka-0-10_2.12/3.3.2/spark-sql-kafka-0-10_2.12-3.3.2.jar -o /opt/spark-sql-kafka-0-10_2.12-3.3.2.jar
 RUN curl https://repo1.maven.org/maven2/org/apache/spark/spark-streaming-kafka-0-10_2.12/3.3.2/spark-streaming-kafka-0-10_2.12-3.3.2.jar -o /opt/spark-streaming-kafka-0-10_2.12-3.3.2.jar

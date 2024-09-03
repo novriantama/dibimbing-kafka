@@ -18,7 +18,7 @@ jupyter:
 	@docker logs ${JUPYTER_CONTAINER_NAME} 2>&1 | grep '\?token\=' -m 1 | cut -d '=' -f2
 	@echo '==========================================================='
 
-kafka: kafka-create
+kafka: kafka-create kafka-create-topic
 
 kafka-create:
 	@echo '__________________________________________________________'
@@ -36,3 +36,6 @@ kafka-create-topic:
 		--replication-factor ${KAFKA_REPLICATION} \
 		--bootstrap-server ${KAFKA_HOST}:9092 \
 		--topic ${KAFKA_TOPIC_NAME}
+
+proto: 
+	@protoc --python_out=. ./protobuf/protobuf_schema.proto
